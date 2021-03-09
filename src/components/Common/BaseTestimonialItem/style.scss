@@ -1,0 +1,103 @@
+@import 'Assets/styles/utils/index.module.scss';
+
+.base-testimonial-item {
+  $self: &;
+
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  height: 460px;
+  border: 1px solid $color-smooth-light-gray;
+  border-radius: 4px;
+  background: $color-white;
+
+  &__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 30%;
+    #{$self}__avatar {
+      width: 80px;
+      height: 80px;
+    }
+    #{$self}__title {
+      display: flex;
+      flex-direction: column;
+      margin-left: 15px;
+      color: $color-dark-gray;
+
+      & > span:first-child {
+        font-weight: $fw-bold;
+      }
+    }
+
+    #{$self}__linkedin-btn {
+      position: absolute;
+      top: 50%;
+      right: 50px;
+      width: 18px;
+      height: 18px;
+      border: none;
+      background: no-repeat center/100% url('Assets/images/linkedin_logo.png');
+      outline: none;
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 80%;
+    max-width: 560px;
+    height: 70%;
+    #{$self}__text {
+      color: $color-smooth-dark-gray;
+      font-size: 26px;
+      line-height: 35px;
+      letter-spacing: -0.19px;
+    }
+  }
+}
+
+@media (max-width: $bp-laptop) {
+
+  .base-testimonial-item {
+    $self: &;
+
+    &__content {
+      #{$self}__text {
+        color: $color-smooth-dark-gray;
+        font-size: 24px;
+        line-height: 29px;
+        letter-spacing: -0.22px;
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-tablet) {
+
+  .base-testimonial-item {
+    $self: &;
+
+    &__header {
+      height: 20%;
+
+      #{$self}__linkedin-btn {
+        right: 10px;
+      }
+    }
+
+    &__content {
+      width: 90%;
+      height: 80%;
+      #{$self}__text {
+        font-size: 24px;
+      }
+    }
+  }
+}

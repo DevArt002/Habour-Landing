@@ -1,0 +1,131 @@
+@import 'Assets/styles/utils/index.module.scss';
+
+.base-circle-collapse-btn {
+  $self: &;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: none;
+  border-radius: 100%;
+  background: $color-white;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+
+  &__circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    #{$self}__bg,
+    #{$self}__fg {
+      fill: transparent;
+      stroke-width: 50%;
+      rx: 25%;
+      ry: 25%;
+      cx: 50%;
+      cy: 50%;
+    }
+
+    #{$self}__bg {
+      stroke: $color-light-gray;
+      transition: all 200ms $ease-in-out-quart;
+    }
+
+    #{$self}__fg {
+      stroke: $color-purple;
+      transition: all 800ms $ease-in-out-quart;
+      transform: rotate(-270deg);
+      transform-origin: 50% 50%;
+      stroke-dasharray: 76;
+      stroke-dashoffset: 76;
+
+      .active & {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    #{$self}__center-circle {
+      fill: $color-white;
+      transition: all 400ms $ease-in-out-quart;
+      r: calc(50% - 2px);
+      cx: 50%;
+      cy: 50%;
+
+      .active & {
+        r: 0;
+      }
+    }
+
+    #{$self}__line {
+      stroke: $color-light-gray;
+      transition: all 500ms $ease-in-out-quart;
+      transform-origin: 50% 50%;
+      stroke-width: 2px;
+
+      &.vertical {
+        transform: rotate(-90deg);
+      }
+
+      .active & {
+        stroke: $color-white;
+
+        &.vertical {
+          transform: rotate(360deg);
+        }
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      #{$self}__bg {
+        stroke: transparent;
+      }
+
+      #{$self}__fg {
+        transform: rotate(-90deg);
+        stroke-dashoffset: 0;
+      }
+
+      #{$self}__line {
+        stroke: $color-purple;
+        transform: rotate(360deg);
+
+        .active & {
+          stroke: $color-white;
+        }
+
+        &.vertical {
+          transform: rotate(270deg);
+        }
+
+        .active &.vertical {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-tablet) {
+
+  .base-circle-collapse-btn {
+    $self: &;
+
+    width: 32px;
+    height: 32px;
+
+    &__circle {
+      #{$self}__fg {
+        stroke-dasharray: 52;
+        stroke-dashoffset: 52;
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import 'Assets/styles/utils/index.module.scss';
+
+.base-faq-item {
+  $self: &;
+
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  &__type {
+    width: 20%;
+    color: $color-purple;
+    font-weight: $fw-bold;
+  }
+
+  &__qa {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    #{$self}__question {
+      font-weight: $fw-bold;
+    }
+    #{$self}__answer {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 1s ease;
+
+      &.active {
+        max-height: 600px;
+      }
+    }
+  }
+
+  &__collapse-btn {
+    transform: translate(0, -25%);
+  }
+}
+
+@media (max-width: $bp-tablet) {
+
+  .base-faq-item {
+    $self: &;
+
+    &__type {
+      display: none;
+    }
+
+    &__qa {
+      width: 90%;
+    }
+  }
+}

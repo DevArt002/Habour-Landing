@@ -1,0 +1,26 @@
+@import 'Assets/styles/utils/index.module.scss';
+
+.base-avatar {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  cursor: pointer;
+  transition: clip-path 0.8s $ease-in-circ;
+  clip-path: circle(20%);
+
+  &.animate {
+    clip-path: circle(50%);
+  }
+
+  &__img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s $ease-in-circ;
+    transform: scale(2);
+
+    .animate > & {
+      transform: scale(1);
+    }
+  }
+}

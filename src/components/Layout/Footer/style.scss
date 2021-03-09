@@ -1,0 +1,45 @@
+@import 'Assets/styles/utils/index.module.scss';
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $z-footer;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+  padding: 20px 40px;
+  background: $color-white;
+  color: $color-dark-gray;
+
+  &__item {
+    margin: 10px 40px 0;
+
+    & > p {
+      margin: 0;
+    }
+  }
+
+  &__title {
+    font-weight: $fw-bold;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: $bp-desktop) {
+
+  .footer {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: $bp-tablet) {
+
+  .footer {
+    position: relative;
+    padding: 20px 0;
+  }
+}
