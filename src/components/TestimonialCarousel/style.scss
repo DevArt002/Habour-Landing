@@ -1,0 +1,81 @@
+@import 'Assets/styles/utils/index.module.scss';
+
+.testimonial-carousel {
+  position: relative;
+  height: 570px;
+  cursor: none;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 400px;
+    background: url('Assets/images/pattern-1.svg');
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__testimonial-item {
+    position: relative;
+    width: 90%;
+  }
+
+  &__mouse {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0;
+    height: 57px;
+    border-radius: 29px;
+    background: $color-purple;
+    color: $color-white;
+    font-size: 18px;
+    opacity: 0.9;
+    pointer-events: none;
+    transition: width 200ms $ease-in-sine, opacity 300ms $ease-in-sine;
+    transform: translate(-50%, -50%);
+
+    &.visible {
+      width: 117px;
+      transition: width 200ms $ease-in-sine, opacity 100ms $ease-in-sine;
+    }
+  }
+
+  .alice-carousel {
+    top: 110px;
+
+    &__wrapper {
+      padding: 0 25vw !important;
+    }
+  }
+}
+
+@media (max-width: $bp-tablet) {
+
+  .testimonial-carousel {
+
+    .alice-carousel {
+
+      &__wrapper {
+        padding: 0 !important;
+        padding-left: 9% !important;
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-laptop) {
+
+  .testimonial-carousel {
+
+    &__bg {
+      left: 5%;
+      width: 90%;
+      height: 400px;
+      background-size: cover;
+    }
+  }
+}
